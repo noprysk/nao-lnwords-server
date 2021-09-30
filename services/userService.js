@@ -1,9 +1,12 @@
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const User = require("./../model/user");
+const logger = require("./../logger/logger");
 
 async function register(first_name, last_name, email, password) {
     try {
+        logger.info(`register a new user: ${email}`);
+
         // validate user input
         if (!(email && password && first_name && last_name)) {
             throw new Error("All input is required");
