@@ -51,7 +51,7 @@ async function login(email, password) {
                 { user_id: user._id, email },
                 process.env.TOKEN_KEY,
                 {
-                    expiresIn: "2h",
+                    expiresIn: process.env.TOKEN_EXPIRE_IN || "2h"
                 }
             );
 
